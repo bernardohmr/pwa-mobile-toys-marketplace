@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link href="manifest.json" rel="manifest">
+
+    <!-- iOS meta tags and icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="App Storm">
+    <link rel="apple-touch-icon" href="icons/152.png">
+
+    <meta name="description" content="App Storm">
+    <meta name="theme-color" content="#f8931d" />
+
+    <title>App Storm</title>
+  </head>
+  <body>
+    <header class="container-fluid fixed-top">
+        <img src="imgs/logo.png" class="logo">
+    </header>
+
+    <main class="container" id="content">
+
+    </main>
+
+    <footer class="container-fluid fixed-bottom">
+
+        <button type="button" class="btn btn-warning btn-block" hidden id="btInstall">Instalar</button>
+    </footer>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        let serviceWorkerRegistration = null;
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js').then((registered) => {
+                    console.log("Service worker registrado com sucesso")
+                    serviceWorkerRegistration = registered
+                });
+
+                inicializarInstalacao();
+            });
+        }
+    </script>
+
+  </body>
+</html>
